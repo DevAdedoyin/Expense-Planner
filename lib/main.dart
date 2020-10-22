@@ -38,6 +38,11 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 2)),
+                        margin:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                        padding: EdgeInsets.all(10),
                         child: Text(trn.amount.toString()),
                       ),
                       Column(
