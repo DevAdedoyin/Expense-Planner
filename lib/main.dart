@@ -39,14 +39,33 @@ class HomePage extends StatelessWidget {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 2)),
+                            border: Border.all(color: Colors.purple, width: 2)),
                         margin:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                         padding: EdgeInsets.all(10),
-                        child: Text(trn.amount.toString()),
+                        child: Text(
+                          trn.amount.toString(),
+                          style: TextStyle(
+                              color: Colors.purple,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
                       ),
                       Column(
-                        children: [Text(trn.title), Text(trn.date.toString())],
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            trn.title,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                          Text(
+                            trn.date.toString(),
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
                       )
                     ],
                   ),
