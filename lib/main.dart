@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Exp6ense Planner"),
+          actions: [IconButton(icon: Icon(Icons.add), onPressed: () {})],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -31,6 +32,11 @@ class HomePage extends StatelessWidget {
               UserTransaction(),
             ],
           ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.add),
         ),
       ),
     );
