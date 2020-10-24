@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:expense_planner/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -14,7 +16,10 @@ class TransactionList extends StatelessWidget {
       child: _transactions.isEmpty
           ? Column(
               children: [
-                Text("No Transaction"),
+                Text(
+                  "No Transaction Added Yet",
+                  style: Theme.of(context).textTheme.title,
+                ),
                 Image.asset("assets/images/waiting.png"),
               ],
             )
