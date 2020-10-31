@@ -21,9 +21,8 @@ class _NewTransactionState extends State<NewTransaction> {
     final enteredTitle = _textController.text;
     final enteredAmount = double.parse(_amountController.text);
 
-    if (enteredTitle.isEmpty || enteredAmount <= 0 || _selectedDate == null) {
+    if (enteredTitle.isEmpty || enteredAmount <= 0 || _selectedDate == null)
       return;
-    }
 
     widget.addTx(
       enteredTitle,
@@ -51,10 +50,11 @@ class _NewTransactionState extends State<NewTransaction> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: 10,
       child: Container(
         padding: EdgeInsets.all(5),
         child: Column(
+          //todo :::> Test other CrossAlignment enum or Read More about it
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TextField(
@@ -68,7 +68,7 @@ class _NewTransactionState extends State<NewTransaction> {
               // onChanged: (val) => amountInput = val,
               controller: _amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_) => _submitData,
+              onSubmitted: (_) => _submitData(),
             ),
             Container(
               height: 70,
@@ -87,7 +87,7 @@ class _NewTransactionState extends State<NewTransaction> {
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -100,7 +100,7 @@ class _NewTransactionState extends State<NewTransaction> {
               child: Text("Add Transaction"),
               color: Theme.of(context).primaryColor,
               textColor: Theme.of(context).textTheme.button.color,
-            )
+            ),
           ],
         ),
       ),

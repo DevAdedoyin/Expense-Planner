@@ -46,6 +46,7 @@ class Chart extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: groupedTransactionValues.map((data) {
             return Flexible(
+              //NOTE :::> Instead of FlexFit.tight you can just use an Expanded Widget
               fit: FlexFit.tight,
               child: ChartBar(
                   data['day'],
