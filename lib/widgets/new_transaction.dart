@@ -49,59 +49,65 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 10,
-      child: Container(
-        padding: EdgeInsets.all(5),
-        child: Column(
-          //todo :::> Test other CrossAlignment enum or Read More about it
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            TextField(
-              decoration: InputDecoration(labelText: "Title"),
-              // onChanged: (val) => titleInput = val,
-              controller: _textController,
-              onSubmitted: (_) => _submitData(),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: "Amount"),
-              // onChanged: (val) => amountInput = val,
-              controller: _amountController,
-              keyboardType: TextInputType.number,
-              onSubmitted: (_) => _submitData(),
-            ),
-            Container(
-              height: 70,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(_selectedDate == null
-                        ? "No date Chosen"
-                        : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}"),
-                  ),
-                  FlatButton(
-                    onPressed: _presentDatePicker,
-                    child: Text(
-                      "Choose Date",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColor),
-                    ),
-                  ),
-                ],
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 10,
+        child: Container(
+          padding: EdgeInsets.only(
+              left: 10,
+              top: 10,
+              right: 10,
+              bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+          child: Column(
+            //todo :::> Test other CrossAlignment enum or Read More about it
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              TextField(
+                decoration: InputDecoration(labelText: "Title"),
+                // onChanged: (val) => titleInput = val,
+                controller: _textController,
+                onSubmitted: (_) => _submitData(),
               ),
-            ),
-            RaisedButton(
-              onPressed: () {
-                //print(textController.text);
-                //print(amountController.text);
-                _submitData();
-              },
-              child: Text("Add Transaction"),
-              color: Theme.of(context).primaryColor,
-              textColor: Theme.of(context).textTheme.button.color,
-            ),
-          ],
+              TextField(
+                decoration: InputDecoration(labelText: "Amount"),
+                // onChanged: (val) => amountInput = val,
+                controller: _amountController,
+                keyboardType: TextInputType.number,
+                onSubmitted: (_) => _submitData(),
+              ),
+              Container(
+                height: 70,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(_selectedDate == null
+                          ? "No date Chosen"
+                          : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}"),
+                    ),
+                    FlatButton(
+                      onPressed: _presentDatePicker,
+                      child: Text(
+                        "Choose Date",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  //print(textController.text);
+                  //print(amountController.text);
+                  _submitData();
+                },
+                child: Text("Add Transaction"),
+                color: Theme.of(context).primaryColor,
+                textColor: Theme.of(context).textTheme.button.color,
+              ),
+            ],
+          ),
         ),
       ),
     );
